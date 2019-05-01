@@ -32,7 +32,7 @@ public class HGUCoursePatternAnalyzer {
 		
 		numOfStudents = Integer.parseInt(args[0]);
 		numOfCourses = Integer.parseInt(args[1]);//초기값을받습니다.
-	
+		
 		students = initiateStudentArrayFromLines(lines);//line에 저장되어있는 정보를 사람이름 만 저장해 줍니다.
 		
 		System.out.println("Number of All Students: " + numOfStudents);//사람 몇명,누구들 인지 방출 
@@ -55,13 +55,13 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private Student[] initiateStudentArrayFromLines(String[] lines) {
 		String name;
-		this.students=new Student[numOfStudents];
+		students=new Student[numOfStudents];
 		int i=0;
 		for(String oneline: lines) {
 			name=oneline.substring(oneline.indexOf(" ")+1,oneline.lastIndexOf(','));
-			if(!studentExist(students,name)) this.students[i++]=new Student(name);
+			if(!studentExist(students,name)) students[i++]=new Student(name);
 		}
-		return null;
+		return students;
 	}
 
 	/**
@@ -90,12 +90,12 @@ public class HGUCoursePatternAnalyzer {
 		courses=new Course[this.numOfCourses];
 		int i=0;
 		for(String oneline: lines) {
-			course=new Course(oneline.substring(oneline.lastIndexOf(','),oneline.length()));
+			course=new Course(oneline.substring(oneline.lastIndexOf(',')+2,oneline.length()));
 			if(!courseExist(courses,course)) this.courses[i++]=course;
 			
 		}
 		
-		return null;
+		return courses;
 	}
 
 	/**
