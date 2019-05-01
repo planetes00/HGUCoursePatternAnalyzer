@@ -108,7 +108,7 @@ public class HGUCoursePatternAnalyzer {
 		
 		for(int i=0;i<numOfCourses;i++) {
 			if(courses[i]!=null)
-				if(course.equals(courses[i].getCourseName())) return true;
+				if(course.getCourseName().equals(courses[i].getCourseName())) return true;
 		}
 		return false;
 	}
